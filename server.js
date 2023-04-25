@@ -20,12 +20,14 @@ app.use(cookieParser());
 
 //routes
 app.use("/signup", require("./routes/signup"));
-app.use("/signin", require("./routes/signin"));
 app.use("/logout", require("./routes/logout"));
 app.use("/refresh", require("./routes/refresh"));
+app.use("/admin-signup", require("./routes/adminSignup"));
+app.use("/admin-signin", require("./routes/adminSignin"));
 
 app.use(verifyJWT);
 app.use("/students", require("./routes/api/students"));
+app.use("/admins", require("./routes/api/admins"));
 
 mongoose.connection.once("open", () => {
   console.log("connected to DB");
