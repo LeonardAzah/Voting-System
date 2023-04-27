@@ -31,6 +31,7 @@ const adminSchema = new Schema({
     type: String,
     required: true,
   },
+  polls: [{ type: mongoose.Types.ObjectId, ref: "Poll", required: true }],
   role: { type: String, default: "admin" },
   timeStamp: {
     type: Date,

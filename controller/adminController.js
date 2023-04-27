@@ -53,7 +53,7 @@ const getAdminById = async (req, res) => {
   if (!admin) {
     return res.status(404);
   }
-  res.status(200).json(std);
+  res.status(200).json(admin);
 };
 
 module.exports = {

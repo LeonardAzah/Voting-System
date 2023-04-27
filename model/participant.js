@@ -1,28 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const studentSchema = new Schema({
+const participantSchema = new Schema({
   username: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
+
   matricule: {
     type: String,
     required: true,
   },
-  sex: {
-    type: String,
-    enum: ["male", "female"],
-    required: true,
-  },
-  dob: {
-    type: Date,
-    required: true,
-  },
+
   faculty: {
     type: String,
     enum: [
@@ -45,16 +34,24 @@ const studentSchema = new Schema({
     type: String,
     required: true,
   },
-  password: {
+  bio: {
     type: String,
     required: true,
   },
-  role: { type: String, default: "student" },
+  image: {
+    type: String,
+    required: true,
+  },
+  poll: {
+    type: mongoose.Types.ObjectId,
+    ref: "Poll",
+    required: true,
+  },
+
   timeStamp: {
     type: Date,
     default: Date.now,
   },
-  refreshtoken: String,
 });
 
-module.exports = mongoose.model("Student", studentSchema);
+module.exports = mongoose.model("participant", participantSchema);
