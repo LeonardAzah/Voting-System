@@ -28,6 +28,8 @@ app.use("/admin-signin", require("./routes/adminSignin"));
 app.use(verifyJWT);
 app.use("/students", require("./routes/api/students"));
 app.use("/admins", require("./routes/api/admins"));
+app.use("/polls", require("./routes/api/polls"));
+app.use("/participants", require("./routes/api/participants"));
 
 mongoose.connection.once("open", () => {
   console.log("connected to DB");

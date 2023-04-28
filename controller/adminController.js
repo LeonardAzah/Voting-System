@@ -35,11 +35,11 @@ const deleteAdmin = async (req, res) => {
     const admin = await Admin.findOne({ _id: Id });
     if (!admin) {
       return res.status(404).json({ error: "Admin not found" });
+    } else {
+      // Delete the student
+      await Admin.deleteOne({ _id: Id });
+      res.json({ success: "Admin deleted successfully" });
     }
-
-    // Delete the student
-    await Admin.deleteOne({ _id: Id });
-    res.json({ success: "Admin deleted successfully" });
   } catch (err) {
     console.error(err.message);
     res.status(500).json({ error: "Server error" });
